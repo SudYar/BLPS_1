@@ -1,0 +1,1 @@
+insert into "ordering" (address, description, price) Values('СПБ', 'Сделать лабу', 500);
