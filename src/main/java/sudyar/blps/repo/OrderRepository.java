@@ -8,7 +8,8 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Ordering, Integer> {
     List<Ordering> findByOwnerLogin(String ownerLogin);
 
-    long deleteAllByOwnerLogin(String ownerLogin);
+//    void deleteByOwnerLogin(String ownerLogin);
+
 
     @Override
     void deleteById(Integer id);

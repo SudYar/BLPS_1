@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.sql.Timestamp;
 
 @Entity
 @AllArgsConstructor
@@ -18,17 +21,27 @@ public class Notice {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
     @NonNull
-    @JoinColumn(name = "to_user_id", referencedColumnName = "id")
-    private User toUser;
+    @Column(name = "toUser")
+    private String toUser;
+
+    @Column(name = "from_user")
+    private String fromUser;
+
+    @Column(name = "description")
+    private String description;
 
     @ManyToOne
-    @JoinColumn(name = "from_user_id", referencedColumnName = "id")
-    private User fromUser;
+    @JoinColumn(name = "target_ordering_id",referencedColumnName = "id")
+    private Ordering targetOrdering;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
+
+    @Column(name = "created_date")
+    @CreationTimestamp
+    private Timestamp createdDate;
+
 
 }

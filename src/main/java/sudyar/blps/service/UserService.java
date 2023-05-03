@@ -14,4 +14,8 @@ public class UserService {
     public User getUserByLogin(String login) {
         return userRepository.findByLogin(login);
     }
+
+    public boolean exitsUserLogin(String login){
+        return userRepository.existsByLogin(login);
+    }
 }
